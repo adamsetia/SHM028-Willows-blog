@@ -986,33 +986,15 @@ h4:first-child,
 .grid_thirds .omega {
   margin: 0;
 }
-/*
-.setGrid(@w) when (@w = @breakpoint3) {
-	.container {
-		width: 1116px;
-	}
-	.grid_full {
-		width: 1086px;
-	}
-	.grid_half {
-		width: 528px;
-	}
-	.grid_quarter {
-		width: 249px;
-		&.three {
-			width: 807px;
-		}
-	}
-	.grid_thirds {
-		width: 342px;
-		&.two {
-			width: 714px;
-		}
-	}
-}	
-*/
 /* side bar */
 /*top page*/
+header {
+  position: relative;
+  background: url(img/bg-head.png) no-repeat center bottom;
+}
+header .container > div {
+  background: url(img/div-head.png) no-repeat center bottom;
+}
 /*footer*/
 /* layout start */
 /*sections*/
@@ -1032,15 +1014,15 @@ section.sec-pad {
   .sticky.top {
     min-height: 100%;
     /* equal to footer height */
-    margin-bottom: -264px;
+    margin-bottom: -68px;
   }
   .sticky.top:after {
     content: "";
     display: block;
-    height: 264px;
+    height: 68px;
   }
   .sticky.btm {
-    height: 264px;
+    height: 68px;
     position: relative;
     clear: both;
   }
@@ -1111,31 +1093,18 @@ section.sec-pad {
   .small .grid_thirds.two {
     width: 482px;
   }
+  header .container > div {
+    height: 198px;
+  }
+  header .logo {
+    position: absolute;
+    left: 0;
+    bottom: 30px;
+  }
 }
 @media only screen and (min-width: 1024px) {
   br {
     display: inline;
-  }
-  .sticky {
-    position: relative;
-  }
-  .sticky.top {
-    min-height: 100%;
-    /* equal to footer height */
-    margin-bottom: -294px;
-  }
-  .sticky.top:after {
-    content: "";
-    display: block;
-    height: 294px;
-  }
-  .sticky.btm {
-    height: 294px;
-    position: relative;
-    clear: both;
-  }
-  body {
-    font-size: 17px;
   }
   .container {
     width: 960px;
@@ -1157,5 +1126,28 @@ section.sec-pad {
   }
   .grid_thirds.two {
     width: 610px;
+  }
+}
+@media only screen and (min-width: 1200px) {
+  .container {
+    width: 1116px;
+  }
+  .grid_full {
+    width: 1086px;
+  }
+  .grid_half {
+    width: 528px;
+  }
+  .grid_quarter {
+    width: 249px;
+  }
+  .grid_quarter.three {
+    width: 807px;
+  }
+  .grid_thirds {
+    width: 342px;
+  }
+  .grid_thirds.two {
+    width: 714px;
   }
 }

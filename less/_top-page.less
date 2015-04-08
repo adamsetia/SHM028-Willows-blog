@@ -1,6 +1,10 @@
 /*top page*/
 header {
-	
+	position: relative;
+	background: url(img/bg-head.png) no-repeat center bottom;
+	.container > div {
+		background: url(img/div-head.png) no-repeat center bottom;
+	}
 	.logo {
 	}
 	
@@ -8,9 +12,13 @@ header {
 
 .setTopPage(@w) when (@w = @breakpoint1) {
 	header {
-		
+		.container > div {
+			height: 198px;
+		}
 		.logo {
-			
+			position: absolute;
+			left: 0;
+			bottom: 30px;
 		}
 		
 	}
