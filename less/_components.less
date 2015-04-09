@@ -3,12 +3,45 @@
 .item, p, {
 	.pibfi_pinterest {
 		display: block;
+		.xc_pin {
+			background-image: url(img/pin-btn.png);
+			width: 93px;
+			height: 91px;
+			top: auto;
+			bottom: 15px;
+			left: 15px;
+		}
+	}
+}
+
+.scrollTop {
+    bottom: 40px;
+    display: none;
+    position: fixed;
+    right: 50%;
+	margin-right: -360px;
+	a {
+		background: url(img/btn-top.png) no-repeat left top;
+		display: block;
+		height: 103px;
+		width: 152px;
 	}
 }
 
 .setComponents(@w) when (@w = @breakpoint1) {
+	.scrollTop {
+		right: 50%;
+		margin-right: -300px;
+	}
 	
 }	
 .setComponents(@w) when (@w = @breakpoint2) {
-	
+	.scrollTop {
+		margin-right: -330px;
+	}
+}	
+.setComponents(@w) when (@w = @breakpoint3) {
+	.scrollTop {
+		margin-right: -360px;
+	}
 }	

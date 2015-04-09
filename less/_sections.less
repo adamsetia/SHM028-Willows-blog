@@ -7,10 +7,12 @@ section {
 
 .main-listing {
 	.item {
+		padding-bottom: 25px;
 		.holder {
 			.box-sizing();
 			padding: 30px;
-			background: white;	
+			background: white;
+			margin-bottom: 22px;	
 		}
 		.heading {
 			position: relative;
@@ -20,10 +22,46 @@ section {
 			}
 		}
 	}
+	.meta-social {
+		.bree-set1();
+		padding-top: 10px;
+		background: url(img/div-items.png) left top repeat-x;
+		.linkSet(@color-option, @hover-color, inherit, none, none);
+		.holder {
+			position: relative;
+			margin: 0;
+			padding: 0 0 10px;
+			background: url(img/div-items.png) left bottom repeat-x;
+		}
+		.share-prefix {
+			.inline-block();
+			text-indent: 100%;
+  			white-space: nowrap;
+  			overflow: hidden;
+			width: 89px;
+			height: 41px;
+			background: url(img/share.png) left top no-repeat;
+			margin-right: 15px;
+		}
+		.share-links {
+			display: inline-block;
+    		padding-top: 14px;
+			> span {
+				cursor: pointer;
+				.transitions(color);
+				&:hover {
+					color: @hover-color;	
+				}
+			}
+		}
+		.comments-link {
+			position: absolute;
+			top: 14px;
+			right: 0;
+		}
+	}
 }
-.side-listing {
-	
-}
+
 
 .main-content {
 	

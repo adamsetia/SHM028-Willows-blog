@@ -1,33 +1,41 @@
 <?php get_header(); ?>
-	
-<div id="main-content">
 
-	<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
-			
-		<div class="post" id="post-<?php the_ID(); ?>">
-
-			<h2><?php the_title(); ?></h2>
-
-			<?php include (TEMPLATEPATH . '/inc/meta.php' ); ?>
-
-			<div class="entry">
-
-				<?php the_content(); ?>
-
-				<?php wp_link_pages(array('before' => 'Pages: ', 'next_or_number' => 'number')); ?>
-
-			</div>
-
-			<?php edit_post_link('Edit this entry.', '<p>', '</p>'); ?>
-
-		</div>
-		
-		<?php // comments_template(); ?>
-
-	<?php endwhile; endif; ?>
-		
-</div>
-
-<?php get_sidebar(); ?>
-
+<section class="main-content sec-pad">
+  <div class="container clearfix">
+    <div class="grid_thirds two main-listing">
+      <?php if ( have_posts() ) : ?>
+      <?php /* Start the Loop */ ?>
+      <?php while ( have_posts() ) : the_post(); ?>
+      <div class="item clearfix">
+        <div class="holder">
+          <div class="heading">
+            <h2>
+              <?php the_title(); ?>
+            </h2>
+          </div>
+          <!-- heading -->
+          <?php the_content(); ?>
+        </div>
+        <!-- holder -->
+         <?php include (TEMPLATEPATH . '/inc/meta-social-page.php' ); ?>
+      </div>
+      <!-- item -->
+      <?php endwhile; ?>
+      <?php else : ?>
+      <div class="item clearfix">
+        <div class="holder">
+          <div class="heading">
+            <h2>No entries were found</h2>
+          </div>
+        </div>
+      </div>
+      <?php endif; ?>
+    </div>
+    <!-- grid_thirds two -->
+    <?php get_sidebar(); ?>
+    <!-- grid_thirds  --> 
+  </div>
+  <!-- container --> 
+</section>
+<!-- main-content -->
 <?php get_footer(); ?>

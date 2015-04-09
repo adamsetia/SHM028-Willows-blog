@@ -1,101 +1,83 @@
 <?php
+/**
+ * The template for displaying Comments
+ *
+ * The area of the page that contains both current comments
+ * and the comment form. The actual display of comments is
+ * handled by a callback to twentytwelve_comment() which is
+ * located in the functions.php file.
+ *
+ * @package WordPress
+ * @subpackage Twenty_Twelve
+ * @since Twenty Twelve 1.0
+ */
 
-	if (!empty($_SERVER['SCRIPT_FILENAME']) && 'comments.php' == basename($_SERVER['SCRIPT_FILENAME']))
-		die ('Please do not load this page directly. Thanks!');
-
-	if ( post_password_required() ) { ?>
-		This post is password protected. Enter the password to view comments.
-	<?php
-		return;
-	}
+/*
+ * If the current post is protected by a password and
+ * the visitor has not yet entered the password we will
+ * return early without loading the comments.
+ */
+if ( post_password_required() )
+	return;
 ?>
 
-<?php if ( have_comments() ) : ?>
-	
-	<h2 id="comments"><?php comments_number('No Responses', 'One Response', '% Responses' );?></h2>
+<div id="comments" class="comments-area">
 
-	<div class="navigation">
-		<div class="next-posts"><?php previous_comments_link() ?></div>
-		<div class="prev-posts"><?php next_comments_link() ?></div>
-	</div>
+	<?php // You can start editing here -- including this comment! ?>
 
-	<ol class="commentlist">
-		<?php wp_list_comments(); ?>
-	</ol>
+	<?php if ( have_comments() ) : ?>
+		<h2 class="comments-title">
+			Love notes
+		</h2>
 
-	<div class="navigation">
-		<div class="next-posts"><?php previous_comments_link() ?></div>
-		<div class="prev-posts"><?php next_comments_link() ?></div>
-	</div>
-	
- <?php else : // this is displayed if there are no comments so far ?>
+		<ol class="commentlist">
+			<?php wp_list_comments( array( 'callback' => 'twentytwelve_comment', 'style' => 'ol' ) ); ?>
+		</ol><!-- .commentlist -->
 
-	<?php if ( comments_open() ) : ?>
-		<!-- If comments are open, but there are no comments. -->
+		<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : // are there comments to navigate through ?>
+		<nav id="comment-nav-below" class="navigation" role="navigation">
+			<h1 class="assistive-text section-heading"><?php _e( 'Comment navigation', 'twentytwelve' ); ?></h1>
+			<div class="nav-previous"><?php previous_comments_link( __( '&larr; Older Comments', 'twentytwelve' ) ); ?></div>
+			<div class="nav-next"><?php next_comments_link( __( 'Newer Comments &rarr;', 'twentytwelve' ) ); ?></div>
+		</nav>
+		<?php endif; // check for comment navigation ?>
 
-	 <?php else : // comments are closed ?>
-		<p>Comments are closed.</p>
-
-	<?php endif; ?>
-	
-<?php endif; ?>
-
-<?php if ( comments_open() ) : ?>
-
-<div id="respond">
-
-	<h2><?php comment_form_title( 'Leave a Reply', 'Leave a Reply to %s' ); ?></h2>
-
-	<div class="cancel-comment-reply">
-		<?php cancel_comment_reply_link(); ?>
-	</div>
-
-	<?php if ( get_option('comment_registration') && !is_user_logged_in() ) : ?>
-		<p>You must be <a href="<?php echo wp_login_url( get_permalink() ); ?>">logged in</a> to post a comment.</p>
-	<?php else : ?>
-
-	<form action="<?php echo get_option('siteurl'); ?>/wp-comments-post.php" method="post" id="commentform">
-
-		<?php if ( is_user_logged_in() ) : ?>
-
-			<p>Logged in as <a href="<?php echo get_option('siteurl'); ?>/wp-admin/profile.php"><?php echo $user_identity; ?></a>. <a href="<?php echo wp_logout_url(get_permalink()); ?>" title="Log out of this account">Log out &raquo;</a></p>
-
-		<?php else : ?>
-
-			<div>
-				<input type="text" name="author" id="author" value="<?php echo esc_attr($comment_author); ?>" size="22" tabindex="1" <?php if ($req) echo "aria-required='true'"; ?> />
-				<label for="author">Name <?php if ($req) echo "(required)"; ?></label>
-			</div>
-
-			<div>
-				<input type="text" name="email" id="email" value="<?php echo esc_attr($comment_author_email); ?>" size="22" tabindex="2" <?php if ($req) echo "aria-required='true'"; ?> />
-				<label for="email">Mail (will not be published) <?php if ($req) echo "(required)"; ?></label>
-			</div>
-
-			<div>
-				<input type="text" name="url" id="url" value="<?php echo esc_attr($comment_author_url); ?>" size="22" tabindex="3" />
-				<label for="url">Website</label>
-			</div>
-
+		<?php
+		/* If there are no comments and comments are closed, let's leave a note.
+		 * But we only want the note on posts and pages that had comments in the first place.
+		 */
+		if ( ! comments_open() && get_comments_number() ) : ?>
+		<p class="nocomments"><?php _e( 'Comments are closed.' , 'twentytwelve' ); ?></p>
 		<?php endif; ?>
 
-		<!--<p>You can use these tags: <code><?php echo allowed_tags(); ?></code></p>-->
+	<?php endif; // have_comments() ?>
 
-		<div>
-			<textarea name="comment" id="comment" cols="58" rows="10" tabindex="4"></textarea>
-		</div>
+	<?php $comment_args = array( 'title_reply'=>'Add a note',
+ 
+'fields' => apply_filters( 'comment_form_default_fields', array(
+ 
+'author' => '<div class="clearfix"><div class="comment-form-author col-2"><div class=alpha>' .
+ 
+        '<input placeholder="Name" id="author" name="author" type="text" value="' . esc_attr( $commenter['comment_author'] ) . '" size="30"' . $aria_req . ' /></div></div>',  
+ 
+    'email'  => '<div class="comment-form-email col-2"><div class=omega>' .
+ 
+                '<input placeholder="Email" id="email" name="email" type="text" value="' . esc_attr(  $commenter['comment_author_email'] ) . '" size="30"' . $aria_req . ' /></div></div></div>',
+ 
+    'url'    => '' ) ),
+ 
+    'comment_field' => '<div class="clearfix">' .
+ 
+                '<textarea id="comment" name="comment" cols="45" rows="8" aria-required="true" placeholder="Your thoughts"></textarea>' .
+ 
+                '</div>',
+ 
+    'comment_notes_after' => '',
+	'comment_notes_before' => '',
+	'label_submit'      => __( 'Post it' ),
+ 
+);
+ 
+comment_form($comment_args); ?>
 
-		<div>
-			<input name="submit" type="submit" id="submit" tabindex="5" value="Submit Comment" />
-			<?php comment_id_fields(); ?>
-		</div>
-		
-		<?php do_action('comment_form', $post->ID); ?>
-
-	</form>
-
-	<?php endif; // If registration required and not logged in ?>
-	
-</div>
-
-<?php endif; ?>
+</div><!-- #comments .comments-area -->

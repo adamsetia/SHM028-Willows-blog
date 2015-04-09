@@ -15,6 +15,9 @@
 	</div>
 	<!-- wrapper --> 
 	<?php wp_footer(); ?>
+    <div class="scrollTop">
+		<a class="scr-link" href=".wrapper"></a>
+	</div>
 </body>
 
 </html>

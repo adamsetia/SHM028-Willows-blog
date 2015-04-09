@@ -151,8 +151,15 @@ body.toolbar {
 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 { 
 	color:@color-option;
 	.caferus();
+	letter-spacing: 0.1em;
 	text-transform: uppercase;
 	font-weight: normal;
+	line-height: 1em;
+	.linkSet(@color-option, @hover-color, inherit, none, none);
+}
+.rm {
+	.bree-set1();
+	.linkSet(@color-option, @hover-color, inherit, none, none);
 }
 h1, .h1 {
 	font-size: 27px;
