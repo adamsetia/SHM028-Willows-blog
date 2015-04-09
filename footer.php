@@ -2,7 +2,7 @@
 	  <!-- sticky.top -->
 	  <footer class="sticky btm">
 	      <div class="container clearfix">
-	        <div class="grid_full">
+	        <div class="grid_thirds two">
 	          <?php if (function_exists('dynamic_sidebar') && is_active_sidebar( 'Footer Widgets' )) : ?>
             	<?php dynamic_sidebar( 'Footer Widgets' ); ?>
             <?php endif; ?>

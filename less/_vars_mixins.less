@@ -1,7 +1,7 @@
 @breakpoint1 : 768px;
 @breakpoint2 : 1024px;
 @breakpoint3 : 1200px;
-@font-size : 2;
+@font-size : 12px;
 @line-height : 1.250em;
 @color-option : #58595b;
 @color: #c0c0c0;
@@ -32,6 +32,13 @@ font-family: 'Bree Serif', serif;
 	color: @color;
 	line-height: @line-height;
 	.bree();
+}
+.bree-set1() {
+	.bree();
+	font-size: 11px;
+	text-transform: uppercase;
+	letter-spacing: 0.1em;
+	color:@color-option;	
 }
 .inheritWH(@w:inherit, @h:inherit) {
 	width: @w;

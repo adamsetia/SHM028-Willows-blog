@@ -13,8 +13,8 @@ License URI:  	http://www.gnu.org/licenses/gpl-2.0.html
 /* webfotnts */
 @font-face {
   font-family: 'caferus_slim';
-  src: url('fonts/caferus_slim.eot');
-  src: url('fonts/caferus_slim.eot?#iefix') format('embedded-opentype'), url('fonts/caferus_slim.woff') format('woff'), url('fonts/caferus_slim.ttf') format('truetype'), url('fonts/caferus_slim.svg#caferus_slim') format('svg');
+  src: url('css/fonts/caferus_slim.eot');
+  src: url('css/fonts/caferus_slim.eot?#iefix') format('embedded-opentype'), url('css/fonts/caferus_slim.woff') format('woff'), url('css/fonts/caferus_slim.ttf') format('truetype'), url('css/fonts/caferus_slim.svg#caferus_slim') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -646,14 +646,13 @@ html {
 }
 body {
   /* set default fonts */
-  font-size: 2;
+  font-size: 12px;
   letter-spacing: 0.05em;
   color: #c0c0c0;
   line-height: 1.25em;
   font-family: 'Bree Serif', serif;
   font-weight: normal;
   font-style: normal;
-  font-size: 17px;
   background: url(img/bg-left.png) repeat-y left top #ededee;
 }
 h1,
@@ -851,8 +850,19 @@ h6,
 .h4,
 .h5,
 .h6 {
+  color: #58595b;
+  font-family: "caferus_slim";
+  font-style: normal;
   text-transform: uppercase;
   font-weight: normal;
+}
+h1,
+.h1 {
+  font-size: 27px;
+}
+h2,
+.h2 {
+  font-size: 27px;
 }
 h4:first-child,
 .h4:first-child {
@@ -947,6 +957,10 @@ h4:first-child,
 }
 /* wp overide */
 /* components */
+.item .pibfi_pinterest,
+p .pibfi_pinterest {
+  display: block;
+}
 /* tables */
 /* forms */
 /* grids */
@@ -990,16 +1004,94 @@ h4:first-child,
 /*top page*/
 header {
   position: relative;
+  margin-bottom: 27px;
   background: url(img/bg-head.png) no-repeat center bottom;
 }
 header .container > div {
   background: url(img/div-head.png) no-repeat center bottom;
 }
+header .logo {
+  padding: 20px 0;
+  width: 170px;
+}
 /*footer*/
+footer {
+  -webkit-box-sizing: border-box;
+  /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;
+  /* Firefox, other Gecko */
+  box-sizing: border-box;
+  /* Opera/IE 8+ */
+  padding-top: 30px;
+  text-align: center;
+  background: url(img/bg-footer.png) no-repeat center top;
+  font-family: 'Bree Serif', serif;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #58595b;
+}
+footer a {
+  -webkit-transition: all 0.2s ease-out 0s;
+  -moz-transition: all 0.2s ease-out 0s;
+  -ms-transition: all 0.2s ease-out 0s;
+  -o-transition: all 0.2s ease-out 0s;
+  transition: all 0.2s ease-out 0s;
+}
+footer a:link {
+  color: #58595b;
+  text-decoration: none;
+  font-size: inherit;
+}
+footer a:visited {
+  color: #58595b;
+  text-decoration: none;
+}
+footer a:hover {
+  color: #a5a6a7;
+  text-decoration: none;
+}
+footer a:active {
+  color: #58595b;
+  text-decoration: none;
+}
+footer a.active {
+  color: #a5a6a7;
+  text-decoration: none;
+  cursor: default;
+}
+footer a.no-deco {
+  text-decoration: none;
+}
 /* layout start */
 /*sections*/
 section.sec-pad {
   padding: 0 0 30px;
+}
+.main-listing .item .holder {
+  -webkit-box-sizing: border-box;
+  /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;
+  /* Firefox, other Gecko */
+  box-sizing: border-box;
+  /* Opera/IE 8+ */
+  padding: 30px;
+  background: white;
+}
+.main-listing .item .heading {
+  position: relative;
+  margin-bottom: 28px;
+}
+.main-listing .item .heading .post-date {
+  font-family: 'Bree Serif', serif;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #58595b;
 }
 @media only screen and (min-width: 768px) {
   .mobile.show {
@@ -1025,10 +1117,6 @@ section.sec-pad {
     height: 68px;
     position: relative;
     clear: both;
-  }
-  body {
-    /* set default fonts */
-    font-size: 17px;
   }
   div.grid_centered,
   .grid_centered {
@@ -1097,9 +1185,17 @@ section.sec-pad {
     height: 198px;
   }
   header .logo {
+    padding: 0;
+    width: auto;
     position: absolute;
     left: 0;
     bottom: 30px;
+  }
+  footer {
+    background-position: center bottom;
+  }
+  footer p {
+    padding: 0;
   }
 }
 @media only screen and (min-width: 1024px) {
@@ -1127,6 +1223,16 @@ section.sec-pad {
   .grid_thirds.two {
     width: 610px;
   }
+  .main-listing .item .heading h2 {
+    padding: 0;
+    display: inline-block;
+    max-width: 390px;
+  }
+  .main-listing .item .heading .post-date {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+  }
 }
 @media only screen and (min-width: 1200px) {
   .container {
@@ -1149,5 +1255,10 @@ section.sec-pad {
   }
   .grid_thirds.two {
     width: 714px;
+  }
+  .main-listing .item .heading h2 {
+    padding: 0;
+    display: inline-block;
+    max-width: 450px;
   }
 }

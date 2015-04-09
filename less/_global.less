@@ -14,7 +14,6 @@ html {
 body {
 	/* set default fonts */
 	.baseFontSet();
-	font-size: 17px;
 	background: url(img/bg-left.png) repeat-y left top #ededee;
 }
 h1, h2, h3, h4, h5, h6, p, menu, ol, ul {
@@ -150,15 +149,16 @@ body.toolbar {
 	overflow: hidden;
 }
 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 { 
-	
+	color:@color-option;
+	.caferus();
 	text-transform: uppercase;
 	font-weight: normal;
 }
 h1, .h1 {
-	
+	font-size: 27px;
 }
 h2, .h2 {
-	
+	font-size: 27px;
 	span {
 		
 	}
@@ -274,10 +274,6 @@ ul {
 	}
 	
 	.stickySet(68px);
-	body {
-	/* set default fonts */
-		font-size: 17px;	
-	}
 
 }	
 .setGlobal(@w) when (@w = @breakpoint2) {

@@ -1,11 +1,20 @@
 /*footer*/
 footer {
+	.box-sizing();
+	padding-top: 30px;
+	text-align: center;
+	background: url(img/bg-footer.png) no-repeat center top;
+	.bree-set1();
+	.linkSet(@color-option, @hover-color, inherit, none, none);
 	
 }
 
 .setFooter(@w) when (@w = @breakpoint1) {
 	footer {
-		
+		background-position: center bottom;
+		p {
+			padding: 0;	
+		}
 	}
 }	
 .setFooter(@w) when (@w = @breakpoint2) {

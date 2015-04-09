@@ -6,7 +6,20 @@ section {
 }
 
 .main-listing {
-	
+	.item {
+		.holder {
+			.box-sizing();
+			padding: 30px;
+			background: white;	
+		}
+		.heading {
+			position: relative;
+			margin-bottom: 28px;
+			.post-date {
+				.bree-set1();
+			}
+		}
+	}
 }
 .side-listing {
 	
@@ -18,13 +31,37 @@ section {
 .setSections(@w) when (@w = @breakpoint1) {
 	
 		
-	.main-listing {
-		
-	}
-	.main-content {
-		
-	}
+	
+	
 }	
 .setSections(@w) when (@w = @breakpoint2) {
-	
+	.main-listing {
+		.item {
+			.heading {
+				h2 {
+					padding: 0;
+					display: inline-block;
+					max-width: 390px;	
+				}
+				.post-date {
+					position: absolute;
+					right: 0;
+					bottom: 0;
+				}
+			}
+		}
+	}
+}	
+.setSections(@w) when (@w = @breakpoint3) {
+	.main-listing {
+		.item {
+			.heading {
+				h2 {
+					padding: 0;
+					display: inline-block;
+					max-width: 450px;	
+				}
+			}
+		}
+	}
 }	
