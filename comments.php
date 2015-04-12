@@ -27,7 +27,7 @@ if ( post_password_required() )
 
 	<?php if ( have_comments() ) : ?>
 		<h2 class="comments-title">
-			Love notes
+			Comments
 		</h2>
 
 		<ol class="commentlist">
@@ -52,7 +52,7 @@ if ( post_password_required() )
 
 	<?php endif; // have_comments() ?>
 
-	<?php $comment_args = array( 'title_reply'=>'Add a note',
+	<?php $comment_args = array( 'title_reply'=>'Add a comment',
  
 'fields' => apply_filters( 'comment_form_default_fields', array(
  
@@ -74,7 +74,7 @@ if ( post_password_required() )
  
     'comment_notes_after' => '',
 	'comment_notes_before' => '',
-	'label_submit'      => __( 'Post it' ),
+	'label_submit'      => __( 'Post my comment' ),
  
 );
  

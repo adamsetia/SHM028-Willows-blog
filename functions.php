@@ -119,9 +119,9 @@ function twentytwelve_comment( $comment, $args, $depth ) {
 					printf( '<span>%1$s %2$s</span>',
 						get_comment_author_link(),
 						// If current post author is also comment author, make it known visually.
-						( $comment->user_id === $post->post_author ) ? '<span>' . __( 'Post author', 'twentytwelve' ) . '</span>' : ''
+						( $comment->user_id === $post->post_author ) ? '<span>' . __( '(Post author)', 'twentytwelve' ) . '</span>' : ''
 					);
-					printf( '<a href="%1$s"><time datetime="%2$s">on %3$s</time></a>',
+					printf( ' <a href="%1$s"><time datetime="%2$s">on %3$s</time></a>',
 						esc_url( get_comment_link( $comment->comment_ID ) ),
 						get_comment_time( 'c' ),
 						/* translators: 1: date, 2: time */
