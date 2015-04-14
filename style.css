@@ -1135,6 +1135,83 @@ p .pibfi_pinterest .xc_pin {
   height: 103px;
   width: 152px;
 }
+/* pager */
+.nav-pager .next-posts a,
+.nav-pager .prev-posts a {
+  height: 29px;
+  background-color: #fb9da6;
+  /* For IE 7 */
+  display: inline-block;
+  vertical-align: top;
+  /* For IE 7 */
+  zoom: 1;
+  *display: inline;
+  float: none !important;
+  -webkit-box-sizing: border-box;
+  /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;
+  /* Firefox, other Gecko */
+  box-sizing: border-box;
+  /* Opera/IE 8+ */
+  padding: 7px 15px 0 10px;
+  font-family: "caferus_slim";
+  font-style: normal;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-weight: normal;
+  line-height: 1em;
+}
+.nav-pager .next-posts a,
+.nav-pager .prev-posts a {
+  -webkit-transition: all 0.2s ease-out 0s;
+  -moz-transition: all 0.2s ease-out 0s;
+  -ms-transition: all 0.2s ease-out 0s;
+  -o-transition: all 0.2s ease-out 0s;
+  transition: all 0.2s ease-out 0s;
+}
+.nav-pager .next-posts a:link,
+.nav-pager .prev-posts a:link {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 18px;
+}
+.nav-pager .next-posts a:visited,
+.nav-pager .prev-posts a:visited {
+  color: #ffffff;
+  text-decoration: none;
+}
+.nav-pager .next-posts a:hover,
+.nav-pager .prev-posts a:hover {
+  color: #58595b;
+  text-decoration: none;
+}
+.nav-pager .next-posts a:active,
+.nav-pager .prev-posts a:active {
+  color: #ffffff;
+  text-decoration: none;
+}
+.nav-pager .next-posts a.active,
+.nav-pager .prev-posts a.active {
+  color: #58595b;
+  text-decoration: none;
+  cursor: default;
+}
+.nav-pager .next-posts a.no-deco,
+.nav-pager .prev-posts a.no-deco {
+  text-decoration: none;
+}
+.nav-pager .next-posts {
+  float: left;
+  height: 29px;
+  background: url(img/ribbon-left.png) no-repeat left top;
+  padding-left: 16px;
+}
+.nav-pager .prev-posts {
+  float: right;
+  height: 29px;
+  background: url(img/ribbon-right.png) no-repeat right top;
+  padding-right: 16px;
+}
 /* tables */
 /* forms */
 /* grids */

@@ -27,7 +27,36 @@
 		width: 152px;
 	}
 }
-
+/* pager */
+.nav-pager {
+	.next-posts, .prev-posts {
+		a {
+			height: 29px;
+			background-color: #fb9da6;
+			.inline-block();
+			.box-sizing();
+			padding: 7px 15px 0 10px;
+			.caferus();
+			letter-spacing: 0.1em;
+			text-transform: uppercase;
+			font-weight: normal;
+			line-height: 1em;
+		}
+		.linkSet(@color-white, @color-option, 18px, none, none);
+	}
+	.next-posts {
+		float: left;
+		height: 29px;
+		background: url(img/ribbon-left.png) no-repeat left top;
+		padding-left: 16px;	
+	}
+	.prev-posts {
+		float: right;
+		height: 29px;
+		background: url(img/ribbon-right.png) no-repeat right top;
+		padding-right: 16px;		
+	}
+}
 .setComponents(@w) when (@w = @breakpoint1) {
 	.scrollTop {
 		right: 50%;
