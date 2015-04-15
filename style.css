@@ -1136,6 +1136,9 @@ p .pibfi_pinterest .xc_pin {
   width: 152px;
 }
 /* pager */
+.nav-pager {
+  padding-bottom: 25px;
+}
 .nav-pager .next-posts a,
 .nav-pager .prev-posts a {
   height: 29px;
@@ -2024,6 +2027,9 @@ section.sec-pad {
   footer p {
     padding: 0;
   }
+  #s2_form_widget-2 h2 {
+    background: url(img/subscribe-sml.png) no-repeat center top;
+  }
   #comments .comment-respond .col-2 {
     float: left;
     width: 50%;
@@ -2064,6 +2070,9 @@ section.sec-pad {
   }
   .grid_thirds.two {
     width: 610px;
+  }
+  #s2_form_widget-2 h2 {
+    background: url(img/subscribe.png) no-repeat center top;
   }
   .main-listing .item .heading h2 {
     padding: 0;

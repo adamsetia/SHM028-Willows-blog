@@ -27,14 +27,7 @@
          <?php include (TEMPLATEPATH . '/inc/meta-social.php' ); ?>
       </div>
       <!-- item -->
-      <?php previous_post_link( '%link', 'Take me back' ); ?>
-      <?php echo get_next_posts_link(); 
-	  	$nextpost = get_next_posts_link();
-		echo $nextpost;
-	  ?>
-      <?php if(get_next_posts_link() || get_previous_posts_link()): ?>
-      asda
-      <?php endif; ?>
+      <?php include (TEMPLATEPATH . '/inc/nav-post.php' ); ?>
       <?php endwhile; ?>
       
       <?php comments_template( '', true ); ?>
