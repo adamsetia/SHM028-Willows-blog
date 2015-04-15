@@ -1755,6 +1755,7 @@ footer a.no-deco {
   text-decoration: none;
 }
 #comments .comment-respond .comment-reply-title {
+  font-size: 18px;
   padding-bottom: 20px;
 }
 #comments .comment-respond .col-2 {
